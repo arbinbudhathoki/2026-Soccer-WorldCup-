@@ -1,5 +1,6 @@
 import { HistoricalHero } from "@/components/HistoricalHero";
 import { PredictorCard } from "@/components/PredictorCard";
+import { RonaldoSpotlight } from "@/components/RonaldoSpotlight";
 import { featuredPredictionFixture } from "@/data/worldcup-history";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
@@ -34,6 +35,7 @@ export default function DashboardPage() {
       </header>
 
       <HistoricalHero />
+      <RonaldoSpotlight />
       <PredictorCard fixture={featuredPredictionFixture} />
     </div>
   );
