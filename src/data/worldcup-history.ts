@@ -1,6 +1,6 @@
 /**
  * Static reference data for recent World Cups + FIFA World Cup 2026™ group matrix.
- * Group line-ups follow the 5 Dec 2025 Final Draw (placeholders until March 2026 play-offs).
+ * Group line-ups reflect the updated 2026 schedule publication (April 2026).
  */
 
 export type WorldCupEditionSummary = {
@@ -118,43 +118,43 @@ type GroupRow = {
   teams: [string, string, string, string];
 };
 
-/** Final Draw pots resolved to groups (5 Dec 2025). Play-off rows are placeholders. */
+/** Finalized 2026 group line-ups from the published match schedule. */
 export const worldCup2026Groups: GroupRow[] = [
   {
     letter: "A",
-    teams: ["Mexico", "Korea Republic", "South Africa", "UEFA Play-off D"],
+    teams: ["Mexico", "South Africa", "Korea Republic", "Czechia"],
   },
   {
     letter: "B",
-    teams: ["Canada", "Switzerland", "Qatar", "UEFA Play-off A"],
+    teams: ["Canada", "Bosnia and Herzegovina", "Qatar", "Switzerland"],
   },
   {
     letter: "C",
-    teams: ["Brazil", "Morocco", "Scotland", "Haiti"],
+    teams: ["Brazil", "Morocco", "Haiti", "Scotland"],
   },
   {
     letter: "D",
-    teams: ["USA", "Australia", "Paraguay", "UEFA Play-off C"],
+    teams: ["USA", "Paraguay", "Australia", "Turkiye"],
   },
   {
     letter: "E",
-    teams: ["Germany", "Ecuador", "Côte d'Ivoire", "Curaçao"],
+    teams: ["Germany", "Curacao", "Cote d'Ivoire", "Ecuador"],
   },
   {
     letter: "F",
-    teams: ["Netherlands", "Japan", "Tunisia", "UEFA Play-off B"],
+    teams: ["Netherlands", "Japan", "Sweden", "Tunisia"],
   },
   {
     letter: "G",
-    teams: ["Belgium", "IR Iran", "Egypt", "New Zealand"],
+    teams: ["Belgium", "Egypt", "IR Iran", "New Zealand"],
   },
   {
     letter: "H",
-    teams: ["Spain", "Uruguay", "Saudi Arabia", "Cabo Verde"],
+    teams: ["Spain", "Cabo Verde", "Saudi Arabia", "Uruguay"],
   },
   {
     letter: "I",
-    teams: ["France", "Senegal", "Norway", "FIFA Play-off 2"],
+    teams: ["France", "Senegal", "Iraq", "Norway"],
   },
   {
     letter: "J",
@@ -162,11 +162,11 @@ export const worldCup2026Groups: GroupRow[] = [
   },
   {
     letter: "K",
-    teams: ["Portugal", "Colombia", "Uzbekistan", "FIFA Play-off 1"],
+    teams: ["Portugal", "DR Congo", "Colombia", "Uzbekistan"],
   },
   {
     letter: "L",
-    teams: ["England", "Croatia", "Panama", "Ghana"],
+    teams: ["England", "Croatia", "Ghana", "Panama"],
   },
 ];
 
@@ -228,7 +228,7 @@ function buildGroupFixtures(row: GroupRow): GroupStageFixture[] {
 export const worldCup2026GroupStageFixtures: GroupStageFixture[] =
   worldCup2026Groups.flatMap(buildGroupFixtures);
 
-/** Opening Group A pairing for the predictor demo (hosts vs Asian representative). */
+/** Opening Group A pairing for the predictor demo (Mexico vs South Africa). */
 export const featuredPredictionFixture: GroupStageFixture =
   worldCup2026GroupStageFixtures.find(
     (f) => f.id === "2026-A-M1-1"
