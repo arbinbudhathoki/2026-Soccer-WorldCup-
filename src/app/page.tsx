@@ -17,6 +17,9 @@ export default function HomePage() {
           Explore 2014–2022 finals, then lock in your scorelines for the
           48-team tournament in North America.
         </p>
+        <p className="mt-3 text-base text-zinc-300">
+          (Will Messi play this 2026 World Cup?)
+        </p>
         <Link
           href="/dashboard"
           className="mt-8 inline-flex items-center gap-2 rounded-full bg-neon px-6 py-3 text-sm font-semibold text-pitch shadow-neon transition hover:bg-neon-dim"
