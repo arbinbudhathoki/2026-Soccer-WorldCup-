@@ -3,7 +3,7 @@ import { PredictorCard } from "@/components/PredictorCard";
 import { RonaldoSpotlight } from "@/components/RonaldoSpotlight";
 import { featuredPredictionFixture } from "@/data/worldcup-history";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Music2 } from "lucide-react";
 
 export default function DashboardPage() {
   return (
@@ -25,12 +25,21 @@ export default function DashboardPage() {
             big-tournament nights.
           </p>
         </div>
-        <div className="glass-panel rounded-2xl px-5 py-4 text-sm text-zinc-300">
-          <p className="text-xs uppercase tracking-[0.3em] text-neon">Live data</p>
-          <p className="mt-2 font-semibold text-white">Supabase-ready</p>
-          <p className="text-xs text-zinc-500">
-            Connect env keys to unlock auth + persistence.
-          </p>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-stretch">
+          <Link
+            href="/songs"
+            className="glass-panel inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-4 text-sm font-semibold text-neon transition hover:bg-white/5"
+          >
+            <Music2 className="h-4 w-4" aria-hidden />
+            Songs &amp; vote
+          </Link>
+          <div className="glass-panel rounded-2xl px-5 py-4 text-sm text-zinc-300">
+            <p className="text-xs uppercase tracking-[0.3em] text-neon">Live data</p>
+            <p className="mt-2 font-semibold text-white">Supabase-ready</p>
+            <p className="text-xs text-zinc-500">
+              Connect env keys to unlock auth + persistence.
+            </p>
+          </div>
         </div>
       </header>
 

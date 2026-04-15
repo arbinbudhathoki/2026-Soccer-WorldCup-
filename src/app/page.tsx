@@ -20,13 +20,22 @@ export default function HomePage() {
         <p className="mt-3 text-base text-zinc-300">
           (Will Messi play this 2026 World Cup?)
         </p>
-        <Link
-          href="/dashboard"
-          className="mt-8 inline-flex items-center gap-2 rounded-full bg-neon px-6 py-3 text-sm font-semibold text-pitch shadow-neon transition hover:bg-neon-dim"
-        >
-          Open dashboard
-          <ArrowRight className="h-4 w-4" aria-hidden />
-        </Link>
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center gap-2 rounded-full bg-neon px-6 py-3 text-sm font-semibold text-pitch shadow-neon transition hover:bg-neon-dim"
+          >
+            Open dashboard
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
+          <Link
+            href="/songs"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-neon/40 hover:text-white"
+          >
+            World Cup songs &amp; voting
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
+        </div>
       </div>
       <p className="text-center text-xs text-zinc-500">
         Stack: Next.js · Tailwind · Supabase · Framer Motion

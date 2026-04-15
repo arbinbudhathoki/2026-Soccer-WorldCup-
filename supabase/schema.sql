@@ -252,3 +252,38 @@ select
 create policy "matches_select_public" on public.matches for
 select
   using (true);
+
+-- ---------------------------------------------------------------------------
+-- World Cup songs — public vote tallies (optional fan poll)
+-- ---------------------------------------------------------------------------
+create table if not exists public.world_cup_song_votes (
+  song_id text primary key,
+  vote_count integer not null default 0,
+  constraint world_cup_song_votes_count_chk check (vote_count >= 0)
+);
+
+alter table public.world_cup_song_votes enable row level security;
+
+drop policy if exists "world_cup_song_votes_select_public" on public.world_cup_song_votes;
+
+create policy "world_cup_song_votes_select_public" on public.world_cup_song_votes for
+select
+  using (true);
+
+create or replace function public.increment_world_cup_song_vote (p_song_id text)
+returns void
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  insert into public.world_cup_song_votes (song_id, vote_count)
+  values (p_song_id, 1)
+  on conflict (song_id) do update
+  set vote_count = world_cup_song_votes.vote_count + 1;
+end;
+$$;
+
+grant execute on function public.increment_world_cup_song_vote (text) to anon;
+
+grant execute on function public.increment_world_cup_song_vote (text) to authenticated;
