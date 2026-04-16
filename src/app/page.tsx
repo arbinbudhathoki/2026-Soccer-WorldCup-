@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Trophy } from "lucide-react";
+import { LegendPick } from "@/components/LegendPick";
 
 export default function HomePage() {
   return (
@@ -37,6 +38,7 @@ export default function HomePage() {
           </Link>
         </div>
       </div>
+      <LegendPick />
       <p className="text-center text-xs text-zinc-500">
         Stack: Next.js · Tailwind · Supabase · Framer Motion
       </p>
