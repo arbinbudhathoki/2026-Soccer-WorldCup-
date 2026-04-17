@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion";
 import { Loader2, Music2, Trophy } from "lucide-react";
 import {
   getEmptyVoteTotals,
@@ -131,6 +130,10 @@ export function WorldCupSongsVote() {
       setBanner(
         typeof err.error === "string" ? err.error : "Could not record your vote."
       );
+    } catch (e) {
+      setBanner(
+        e instanceof Error ? e.message : "Could not record your vote — try again."
+      );
     } finally {
       setVotingId(null);
     }
@@ -188,9 +191,8 @@ export function WorldCupSongsVote() {
             const pct = totals ? (count / maxVotes) * 100 : 0;
             const rank = index + 1;
             return (
-              <motion.li
+              <li
                 key={song.id}
-                layout
                 className="relative overflow-hidden rounded-2xl border border-white/10 bg-pitch-card/40"
               >
                 <div
@@ -235,7 +237,7 @@ export function WorldCupSongsVote() {
                     </button>
                   </div>
                 </div>
-              </motion.li>
+              </li>
             );
           })}
         </ol>
