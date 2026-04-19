@@ -1,11 +1,15 @@
 import { HistoricalHero } from "@/components/HistoricalHero";
 import { PredictorCard } from "@/components/PredictorCard";
 import { RonaldoSpotlight } from "@/components/RonaldoSpotlight";
+import { DailyScoreSync } from "@/components/DailyScoreSync";
 import { featuredPredictionFixture } from "@/data/worldcup-history";
+import { readStoredCompletedMatches } from "@/lib/completed-match-store";
 import Link from "next/link";
 import { ChevronLeft, Music2 } from "lucide-react";
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const completedMatches = await readStoredCompletedMatches();
+
   return (
     <div className="mx-auto flex min-h-screen max-w-6xl flex-col gap-10 px-4 py-10 md:px-8">
       <header className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -46,6 +50,7 @@ export default function DashboardPage() {
       <HistoricalHero />
       <RonaldoSpotlight />
       <PredictorCard fixture={featuredPredictionFixture} />
+      <DailyScoreSync matches={completedMatches} />
     </div>
   );
 }
