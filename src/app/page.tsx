@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Calendar, Trophy } from "lucide-react";
+import { ArrowRight, Calendar, Flag, Trophy } from "lucide-react";
 import { LegendPick } from "@/components/LegendPick";
 
 export default function HomePage() {
@@ -114,10 +114,16 @@ export default function HomePage() {
       </section>
 
       <section className="glass-panel rounded-3xl p-8 md:p-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neon">
-          Personal note
-        </p>
-        <h2 className="mt-3 text-2xl font-semibold text-white md:text-3xl">
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="inline-flex items-center gap-2 rounded-full border border-neon/30 bg-neon/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-neon">
+            <Flag className="h-3.5 w-3.5" aria-hidden />
+            Personal note
+          </span>
+          <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-300">
+            Germany fan story
+          </span>
+        </div>
+        <h2 className="mt-4 text-2xl font-semibold text-white md:text-3xl">
           Why Germany became my team
         </h2>
         <p className="mt-4 text-sm leading-relaxed text-zinc-300 md:text-base">
