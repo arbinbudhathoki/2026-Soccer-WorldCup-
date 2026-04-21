@@ -115,6 +115,24 @@ export default function HomePage() {
 
       <section className="glass-panel rounded-3xl p-8 md:p-10">
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neon">
+          Personal note
+        </p>
+        <h2 className="mt-3 text-2xl font-semibold text-white md:text-3xl">
+          Why Germany became my team
+        </h2>
+        <p className="mt-4 text-sm leading-relaxed text-zinc-300 md:text-base">
+          My fascination with soccer is rooted in a childhood memory: the day my
+          father gave me a Germany jersey. As I grew older and my interest in
+          data and IT developed, I began to appreciate Germany for more than
+          just the colors. I became a fan of their system-the tactical
+          efficiency, the precision passing of Mesut Ozil, and the way they
+          engineered victory. What started as a gift became a deep appreciation
+          for the world&apos;s most technical sport.
+        </p>
+      </section>
+
+      <section className="glass-panel rounded-3xl p-8 md:p-10">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neon">
           Tickets &amp; pricing
         </p>
         <h2 className="mt-3 text-2xl font-semibold text-white md:text-3xl">
