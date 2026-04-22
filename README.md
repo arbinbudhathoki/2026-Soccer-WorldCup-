@@ -2,6 +2,20 @@
 
 Interactive World Cup website built with Next.js, focused on history, fan storytelling, and 2026 tournament predictions.
 
+## Screenshots
+
+**Landing — World Cup mode:** history, 2026 predictions, and event snapshot.
+
+![Landing: World Cup mode hero with neon UI](docs/screenshots/landing-world-cup-mode.png)
+
+**Matchroom — historical finals:** year toggle (2014 / 2018 / 2022), podium, and final-night stats (Supabase-ready panel).
+
+![Matchroom dashboard: finals energy and year selector](docs/screenshots/matchroom-dashboard.png)
+
+**Dashboard — 2026 predictor & score sync:** match scorelines, daily completed scores from TheSportsDB.
+
+![Dashboard: 2026 predictor and free API score sync](docs/screenshots/dashboard-predictor-sync.png)
+
 ## Live demo
 
 **[Deploy to Vercel (one click)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Farbinbudhathoki%2F2026-Soccer-WorldCup-)**
