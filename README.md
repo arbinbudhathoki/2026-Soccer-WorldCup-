@@ -2,11 +2,13 @@
 
 Interactive World Cup website built with Next.js, focused on history, fan storytelling, and 2026 tournament predictions.
 
-## Live Demo
+## Live demo
 
-Add your deployed link here after Vercel deploy:
+**[Deploy to Vercel (one click)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Farbinbudhathoki%2F2026-Soccer-WorldCup-)**
 
-`https://your-project.vercel.app`
+After the first production deploy, you will see a **production URL** on your Vercel project overview. Add a clickable **App** link in this README (same format as a normal markdown link) and set `NEXT_PUBLIC_SITE_URL` in Vercel to that exact URL (see `.env.example`) so link previews and Open Graph images stay correct on custom domains or stable Vercel URLs.
+
+Example line you can add after you know the URL: `[open live site](https://<your-project>.vercel.app)`.
 
 ## Highlights
 
@@ -40,10 +42,10 @@ Add your deployed link here after Vercel deploy:
 
 ## Deployment (Vercel)
 
-1. Go to [Vercel](https://vercel.com) and import this GitHub repository.
-2. Configure environment variables if required (for Supabase).
-3. Deploy and copy the production URL.
-4. Replace the Live Demo placeholder in this README with your real link.
+1. Use [the deploy link above](#live-demo) or go to [Vercel](https://vercel.com) and import this repository.
+2. **Recommended:** in project **Settings → Environment Variables**, set `NEXT_PUBLIC_SITE_URL` to your production URL (Vercel URL or custom domain) so link previews and metadata use a stable address.
+3. Add optional Supabase keys from `.env.example` if you use that integration.
+4. After deploy, paste the production URL into the **App** line in the [Live demo](#live-demo) section of this README.
 
 ## Repository
 
