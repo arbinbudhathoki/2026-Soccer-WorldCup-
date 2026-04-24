@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Calendar, Flag, Trophy } from "lucide-react";
+import { GoldenBootStory } from "@/components/GoldenBootStory";
 import { LegendPick } from "@/components/LegendPick";
 
 export default function HomePage() {
@@ -121,6 +122,8 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      <GoldenBootStory />
 
       <section className="glass-panel rounded-3xl p-8 md:p-10">
         <div className="flex flex-wrap items-center gap-3">

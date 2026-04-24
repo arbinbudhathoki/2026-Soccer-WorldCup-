@@ -1,3 +1,4 @@
+import { GoldenBootStory } from "@/components/GoldenBootStory";
 import { HistoricalHero } from "@/components/HistoricalHero";
 import { PredictorCard } from "@/components/PredictorCard";
 import { RonaldoSpotlight } from "@/components/RonaldoSpotlight";
@@ -48,6 +49,7 @@ export default async function DashboardPage() {
       </header>
 
       <HistoricalHero />
+      <GoldenBootStory variant="compact" />
       <RonaldoSpotlight />
       <PredictorCard fixture={featuredPredictionFixture} />
       <DailyScoreSync matches={completedMatches} />
