@@ -2,6 +2,8 @@
 
 Interactive World Cup website built with Next.js, focused on history, fan storytelling, and 2026 tournament predictions.
 
+**Official tournament hub:** [FIFA World Cup 2026™ — Canada, Mexico, USA](https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026)
+
 ## Screenshots
 
 **Landing — World Cup mode:** history, 2026 predictions, and event snapshot.

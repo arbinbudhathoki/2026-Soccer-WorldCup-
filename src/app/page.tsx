@@ -50,7 +50,16 @@ export default function HomePage() {
           Three countries. Sixteen cities. One unforgettable summer.
         </h2>
         <p className="mt-4 text-base font-medium text-white md:text-lg">
-          The FIFA World Cup 2026™ runs{" "}
+          The{" "}
+          <a
+            href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white underline decoration-neon/50 underline-offset-[3px] transition hover:text-neon hover:decoration-neon"
+          >
+            FIFA World Cup 2026™
+          </a>{" "}
+          runs{" "}
           <span className="text-neon">39 days</span> from{" "}
           <time dateTime="2026-06-11">Thursday, June 11</time> through{" "}
           <time dateTime="2026-07-19">Sunday, July 19</time>—the first
