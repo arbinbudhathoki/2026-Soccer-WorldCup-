@@ -171,9 +171,18 @@ export default function HomePage() {
             Stadium (MetLife Stadium) in East Rutherford.
           </li>
           <li>
+            Stadium watch: Estadio Azteca in Mexico City is set to become the
+            first venue to host matches in three different men&apos;s World Cups,
+            alongside modern host venues across North America.
+          </li>
+          <li>
             FIFA released another ticket batch on{" "}
             <time dateTime="2026-04-22">April 22, 2026</time>, with reports
             pointing to mixed demand depending on match and market.
+          </li>
+          <li>
+            With the expanded field, more countries can qualify, creating extra
+            room for debut teams, surprise runs, and underdog storylines.
           </li>
           <li>
             Player watch: reports suggest Lamine Yamal is expected to recover in
@@ -184,6 +193,11 @@ export default function HomePage() {
             Contingency rumors around last-minute replacement teams have been
             publicly downplayed by officials, who continue to emphasize sporting
             qualification.
+          </li>
+          <li>
+            The event is also expected to be highly data-rich, with deeper
+            match analytics and fan-facing tools such as predictions, voting,
+            and interactive content throughout the tournament.
           </li>
         </ul>
       </section>
