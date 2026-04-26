@@ -34,6 +34,14 @@ Example line you can add after you know the URL: `[open live site](https://<your
 - Personal fan note section (Germany, Mesut Ozil inspiration)
 - Built with reusable React components and Tailwind styling
 
+## Latest 2026 Update Snapshot
+
+- Tournament window: June 11 to July 19, 2026
+- Format: 48 teams, 12 groups of four, 104 total matches
+- Final venue: New York New Jersey Stadium (MetLife Stadium), East Rutherford
+- Ticketing: additional batch released on April 22, 2026
+- Storylines: player fitness/injury watch (Lamine Yamal, Estevao) and ongoing Messi status discussion
+
 ## Tech Stack
 
 - Next.js
@@ -42,6 +50,24 @@ Example line you can add after you know the URL: `[open live site](https://<your
 - Tailwind CSS
 - Supabase
 - Framer Motion
+
+## Quick Start
+
+1. Install dependencies:
+   `npm install`
+2. Create local environment file:
+   `cp .env.example .env.local`
+3. Start development server:
+   `npm run dev`
+4. Open in browser:
+   `http://localhost:3000`
+
+### Useful Scripts
+
+- `npm run dev` - Start local development server
+- `npm run build` - Create production build
+- `npm run start` - Run production build locally
+- `npm run lint` - Run Next.js/ESLint checks
 
 ## Run Locally
 

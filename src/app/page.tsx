@@ -151,6 +151,45 @@ export default function HomePage() {
 
       <section className="glass-panel rounded-3xl p-8 md:p-10">
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neon">
+          Latest 2026 update snapshot
+        </p>
+        <h2 className="mt-3 text-2xl font-semibold text-white md:text-3xl">
+          April 2026: tickets, final venue, and squad watch
+        </h2>
+        <ul className="mt-6 list-disc space-y-3 pl-5 text-sm text-zinc-300 marker:text-neon md:text-base [&>li]:pl-2">
+          <li>
+            The tournament kicks off on{" "}
+            <time dateTime="2026-06-11">June 11, 2026</time> and ends on{" "}
+            <time dateTime="2026-07-19">July 19, 2026</time>, with{" "}
+            <span className="text-neon">48 teams</span> and{" "}
+            <span className="text-neon">104 matches</span> across host nations
+            USA, Canada, and Mexico.
+          </li>
+          <li>
+            The final is scheduled for{" "}
+            <time dateTime="2026-07-19">July 19</time> at New York New Jersey
+            Stadium (MetLife Stadium) in East Rutherford.
+          </li>
+          <li>
+            FIFA released another ticket batch on{" "}
+            <time dateTime="2026-04-22">April 22, 2026</time>, with reports
+            pointing to mixed demand depending on match and market.
+          </li>
+          <li>
+            Player watch: reports suggest Lamine Yamal is expected to recover in
+            time, Estevao faces uncertainty after a season-ending injury, and
+            Lionel Messi&apos;s final decision remains a major storyline.
+          </li>
+          <li>
+            Contingency rumors around last-minute replacement teams have been
+            publicly downplayed by officials, who continue to emphasize sporting
+            qualification.
+          </li>
+        </ul>
+      </section>
+
+      <section className="glass-panel rounded-3xl p-8 md:p-10">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neon">
           Tickets &amp; pricing
         </p>
         <h2 className="mt-3 text-2xl font-semibold text-white md:text-3xl">
