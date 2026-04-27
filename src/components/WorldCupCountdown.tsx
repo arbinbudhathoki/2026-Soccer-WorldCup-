@@ -10,11 +10,19 @@ function getCountdown() {
   const diff = START_DATE_UTC - now;
 
   if (diff <= 0) {
-    return { days: 0, hasStarted: true };
+    return { days: 0, hours: 0, minutes: 0, seconds: 0, hasStarted: true };
   }
+
+  const totalSeconds = Math.floor(diff / 1000);
+  const hours = Math.floor((totalSeconds % (24 * 60 * 60)) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
 
   return {
     days: Math.ceil(diff / DAY_MS),
+    hours,
+    minutes,
+    seconds,
     hasStarted: false,
   };
 }
@@ -29,7 +37,7 @@ export function WorldCupCountdown({ variant = "default" }: WorldCupCountdownProp
   useEffect(() => {
     const timer = setInterval(() => {
       setCountdown(getCountdown());
-    }, 60 * 1000);
+    }, 1000);
 
     return () => clearInterval(timer);
   }, []);
@@ -43,6 +51,7 @@ export function WorldCupCountdown({ variant = "default" }: WorldCupCountdownProp
   }, [countdown.days, countdown.hasStarted]);
 
   const isCompact = variant === "compact";
+  const timeRemaining = `${String(countdown.hours).padStart(2, "0")}:${String(countdown.minutes).padStart(2, "0")}:${String(countdown.seconds).padStart(2, "0")}`;
 
   return (
     <section
@@ -90,6 +99,16 @@ export function WorldCupCountdown({ variant = "default" }: WorldCupCountdownProp
           {subtitle}
         </span>
       </div>
+      <p
+        className={
+          isCompact
+            ? "mt-3 text-sm font-medium text-zinc-200"
+            : "mt-4 text-base font-medium text-zinc-200"
+        }
+      >
+        {countdown.hasStarted ? "00:00:00" : timeRemaining}{" "}
+        <span className="text-zinc-400">hours : minutes : seconds</span>
+      </p>
     </section>
   );
 }
