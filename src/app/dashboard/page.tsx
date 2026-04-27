@@ -3,6 +3,7 @@ import { HistoricalHero } from "@/components/HistoricalHero";
 import { PredictorCard } from "@/components/PredictorCard";
 import { RonaldoSpotlight } from "@/components/RonaldoSpotlight";
 import { DailyScoreSync } from "@/components/DailyScoreSync";
+import { WorldCupCountdown } from "@/components/WorldCupCountdown";
 import { featuredPredictionFixture } from "@/data/worldcup-history";
 import { readStoredCompletedMatches } from "@/lib/completed-match-store";
 import Link from "next/link";
@@ -47,6 +48,8 @@ export default async function DashboardPage() {
           </div>
         </div>
       </header>
+
+      <WorldCupCountdown variant="compact" />
 
       <HistoricalHero />
       <GoldenBootStory variant="compact" />
