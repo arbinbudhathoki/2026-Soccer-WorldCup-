@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Calendar, Flag, Trophy } from "lucide-react";
 import { GoldenBootStory } from "@/components/GoldenBootStory";
+import { HostCitiesMiniMap } from "@/components/HostCitiesMiniMap";
 import { LegendPick } from "@/components/LegendPick";
 import { WorldCupCountdown } from "@/components/WorldCupCountdown";
 
@@ -42,6 +43,7 @@ export default function HomePage() {
       </div>
 
       <WorldCupCountdown />
+      <HostCitiesMiniMap />
 
       <section className="glass-panel rounded-3xl p-8 md:p-10">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-neon/30 bg-neon/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-neon">
