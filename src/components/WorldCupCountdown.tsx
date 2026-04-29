@@ -27,14 +27,24 @@ function getCountdown() {
   };
 }
 
+const INITIAL_COUNTDOWN = {
+  days: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
+  hasStarted: false,
+};
+
 type WorldCupCountdownProps = {
   variant?: "default" | "compact";
 };
 
 export function WorldCupCountdown({ variant = "default" }: WorldCupCountdownProps) {
-  const [countdown, setCountdown] = useState(getCountdown);
+  const [countdown, setCountdown] = useState(INITIAL_COUNTDOWN);
 
   useEffect(() => {
+    setCountdown(getCountdown());
+
     const timer = setInterval(() => {
       setCountdown(getCountdown());
     }, 1000);
