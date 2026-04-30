@@ -91,6 +91,73 @@ export default function HomePage() {
             calendar—history&apos;s about to kick off.
           </p>
         </div>
+
+        <div className="mt-8 rounded-2xl border border-neon/25 bg-neon/5 p-6 md:p-8">
+          <h3 className="text-lg font-semibold text-white md:text-xl">
+            Opening-week spotlight
+          </h3>
+          <p className="mt-2 text-sm text-zinc-400 md:text-base">
+            The tournament begins on{" "}
+            <time dateTime="2026-06-11">June 11, 2026</time>. Here are
+            high-profile openers to circle first.
+          </p>
+          <ul className="mt-5 divide-y divide-white/10 text-sm text-zinc-200 md:text-base">
+            <li className="flex flex-col gap-1 py-4 first:pt-0 md:flex-row md:items-baseline md:gap-6">
+              <time
+                dateTime="2026-06-11"
+                className="shrink-0 font-semibold uppercase tracking-wide text-neon"
+              >
+                June 11
+              </time>
+              <div>
+                <span className="font-medium text-white">
+                  Mexico vs South Africa
+                </span>
+                <span className="text-zinc-500"> · </span>
+                Mexico City — the official opener
+              </div>
+            </li>
+            <li className="flex flex-col gap-1 py-4 md:flex-row md:items-baseline md:gap-6">
+              <time
+                dateTime="2026-06-12"
+                className="shrink-0 font-semibold uppercase tracking-wide text-neon"
+              >
+                June 12
+              </time>
+              <div className="space-y-2">
+                <div>
+                  <span className="font-medium text-white">
+                    USA vs Paraguay
+                  </span>
+                  <span className="text-zinc-500"> · </span>
+                  Los Angeles
+                </div>
+                <div>
+                  <span className="font-medium text-white">
+                    Canada vs Bosnia and Herzegovina
+                  </span>
+                  <span className="text-zinc-500"> · </span>
+                  Toronto
+                </div>
+              </div>
+            </li>
+            <li className="flex flex-col gap-1 py-4 last:pb-0 md:flex-row md:items-baseline md:gap-6">
+              <time
+                dateTime="2026-06-13"
+                className="shrink-0 font-semibold uppercase tracking-wide text-neon"
+              >
+                June 13
+              </time>
+              <div>
+                <span className="font-medium text-white">
+                  Brazil vs Morocco
+                </span>
+                <span className="text-zinc-500"> · </span>
+                New York / New Jersey
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
 
       <section className="glass-panel rounded-3xl p-8 md:p-10">

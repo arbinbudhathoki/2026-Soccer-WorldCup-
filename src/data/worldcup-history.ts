@@ -267,7 +267,7 @@ export const worldCup2026FullSchedule: WorldCup2026Match[] = [
   {
     matchNumber: 3,
     stage: "Grp B",
-    fixture: "Canada vs UEFA Play-off A",
+    fixture: "Canada vs Bosnia and Herzegovina",
     date: "Jun 12",
     kickoffET: "15:00 EDT",
     city: "Toronto, Canada",
@@ -395,7 +395,7 @@ export const worldCup2026FullSchedule: WorldCup2026Match[] = [
   {
     matchNumber: 19,
     stage: "Grp B",
-    fixture: "Switzerland vs UEFA Play-off A",
+    fixture: "Switzerland vs Bosnia and Herzegovina",
     date: "Jun 18",
     kickoffET: "15:00 EDT",
     city: "Los Angeles, USA",
@@ -659,7 +659,7 @@ export const worldCup2026FullSchedule: WorldCup2026Match[] = [
   {
     matchNumber: 52,
     stage: "Grp B",
-    fixture: "UEFA Play-off A vs Qatar",
+    fixture: "Bosnia and Herzegovina vs Qatar",
     date: "Jun 24",
     kickoffET: "15:00 EDT",
     city: "Seattle, USA",
