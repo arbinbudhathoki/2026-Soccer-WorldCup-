@@ -1,13 +1,15 @@
 import { GoldenBootStory } from "@/components/GoldenBootStory";
 import { HistoricalHero } from "@/components/HistoricalHero";
-import { PredictorCard } from "@/components/PredictorCard";
 import { RonaldoSpotlight } from "@/components/RonaldoSpotlight";
 import { DailyScoreSync } from "@/components/DailyScoreSync";
 import { WorldCupCountdown } from "@/components/WorldCupCountdown";
-import { featuredPredictionFixture } from "@/data/worldcup-history";
+import { FeaturedPredictorSection } from "@/app/dashboard/featured-predictor-section";
 import { readStoredCompletedMatches } from "@/lib/completed-match-store";
 import Link from "next/link";
 import { ChevronLeft, Music2 } from "lucide-react";
+
+/** Session + Supabase reads must not reuse a generic static snapshot. */
+export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
   const completedMatches = await readStoredCompletedMatches();
@@ -54,7 +56,7 @@ export default async function DashboardPage() {
       <HistoricalHero />
       <GoldenBootStory variant="compact" />
       <RonaldoSpotlight />
-      <PredictorCard fixture={featuredPredictionFixture} />
+      <FeaturedPredictorSection />
       <DailyScoreSync matches={completedMatches} />
     </div>
   );

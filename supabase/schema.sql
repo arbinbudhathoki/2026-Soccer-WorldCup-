@@ -69,6 +69,8 @@ create table if not exists public.matches (
   away_score integer,
   kickoff_at timestamptz,
   venue text,
+  -- Mirrors `GroupStageFixture.id` in src/data/worldcup-history.ts (e.g. 2026-A-M1-1).
+  fixture_key text,
   status text not null default 'scheduled',
   external_fifa_match_code text,
   winner_team_id uuid references public.teams (id),
@@ -287,3 +289,12 @@ $$;
 grant execute on function public.increment_world_cup_song_vote (text) to anon;
 
 grant execute on function public.increment_world_cup_song_vote (text) to authenticated;
+
+-- ---------------------------------------------------------------------------
+-- Additive migrations (safe for databases created before fixture_key existed)
+-- ---------------------------------------------------------------------------
+alter table public.matches add column if not exists fixture_key text;
+
+create unique index if not exists matches_fixture_key_uidx on public.matches (fixture_key);
+
+comment on column public.matches.fixture_key is 'Stable app id for seed + forms; aligns with TS fixture ids.';

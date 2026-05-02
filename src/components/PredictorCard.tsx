@@ -16,10 +16,29 @@ const initialState: PredictionActionState = {
 
 type Props = {
   fixture: GroupStageFixture;
+  /** Server-hydrated from Supabase when available. */
+  initialHomeGoals?: number;
+  initialAwayGoals?: number;
+  /** True when kickoff passed or match is live/finished. */
+  formLocked?: boolean;
 };
 
-export function PredictorCard({ fixture }: Props) {
+export function PredictorCard({
+  fixture,
+  initialHomeGoals,
+  initialAwayGoals,
+  formLocked = false,
+}: Props) {
   const [state, formAction] = useActionState(submitPrediction, initialState);
+
+  const homeDefault =
+    typeof initialHomeGoals === "number" && Number.isFinite(initialHomeGoals)
+      ? initialHomeGoals
+      : 0;
+  const awayDefault =
+    typeof initialAwayGoals === "number" && Number.isFinite(initialAwayGoals)
+      ? initialAwayGoals
+      : 0;
 
   return (
     <section className="glass-panel rounded-3xl p-8 md:p-10">
@@ -32,14 +51,16 @@ export function PredictorCard({ fixture }: Props) {
             Call your shot
           </h2>
           <p className="mt-2 max-w-2xl text-sm text-zinc-400">
-            Group {fixture.groupLetter} · Matchday {fixture.matchday} — dial in
-            a scoreline. Points logic lands once Supabase `matches` rows mirror
-            this schedule.
+            Group {fixture.groupLetter} · Matchday {fixture.matchday} · save
+            with Supabase (seed fixture row + Auth). Predictions unlock until
+            kickoff is recorded.
           </p>
         </div>
         <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-4 py-2 text-xs text-zinc-400">
           <Timer className="h-4 w-4 text-neon" aria-hidden />
-          Kickoff TBD · venues drop with FIFA schedule lock
+          {formLocked
+            ? "Locked — underway or kickoff reached"
+            : "Kickoff TBD unless set in matches.kickoff_at"}
         </div>
       </div>
 
@@ -50,9 +71,19 @@ export function PredictorCard({ fixture }: Props) {
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <TeamPillar label="Home" name={fixture.home} align="start" />
             <div className="flex items-center gap-4">
-              <ScoreInput label="Home" name="homeGoals" defaultValue={0} />
+              <ScoreInput
+                label="Home"
+                name="homeGoals"
+                defaultValue={homeDefault}
+                readOnly={formLocked}
+              />
               <span className="text-3xl font-semibold text-zinc-600">:</span>
-              <ScoreInput label="Away" name="awayGoals" defaultValue={0} />
+              <ScoreInput
+                label="Away"
+                name="awayGoals"
+                defaultValue={awayDefault}
+                readOnly={formLocked}
+              />
             </div>
             <TeamPillar label="Away" name={fixture.away} align="end" />
           </div>
@@ -62,11 +93,11 @@ export function PredictorCard({ fixture }: Props) {
           <div className="flex items-start gap-2 text-sm text-zinc-400">
             <ShieldCheck className="mt-0.5 h-4 w-4 text-neon" aria-hidden />
             <span>
-              Predictions will lock to kickoff once `matches.kickoff_at` is set
-              in Supabase. Until then, this form is a guided preview.
+              Saves to your account after sign-in and `seed-featured-match.sql`.
+              Locks when kickoff arrives or status is live/finished.
             </span>
           </div>
-          <SubmitPredictionButton />
+          <SubmitPredictionButton locksSubmit={formLocked} />
         </div>
 
         {state.message ? (
@@ -115,10 +146,12 @@ function ScoreInput({
   label,
   name,
   defaultValue,
+  readOnly,
 }: {
   label: string;
   name: string;
   defaultValue: number;
+  readOnly?: boolean;
 }) {
   return (
     <label className="neon-ring flex flex-col items-center gap-2 rounded-2xl border border-white/10 bg-black/40 px-4 py-3">
@@ -126,7 +159,7 @@ function ScoreInput({
         {label}
       </span>
       <input
-        className="w-20 rounded-xl border border-transparent bg-transparent text-center text-3xl font-semibold text-white outline-none"
+        className="w-20 rounded-xl border border-transparent bg-transparent text-center text-3xl font-semibold text-white outline-none read-only:opacity-80"
         type="number"
         name={name}
         min={0}
@@ -134,6 +167,7 @@ function ScoreInput({
         defaultValue={defaultValue}
         inputMode="numeric"
         required
+        readOnly={readOnly}
       />
     </label>
   );
