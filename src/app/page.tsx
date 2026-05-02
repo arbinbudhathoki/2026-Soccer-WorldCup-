@@ -282,9 +282,18 @@ export default function HomePage() {
           💸 Why are the prices so high?
         </h2>
         <p className="mt-4 text-sm text-zinc-300 md:text-base">
-          If you&apos;ve been looking at tickets, you&apos;re likely seeing
-          prices significantly higher than past World Cups. Analysts point to a
-          few specific &quot;perfect storm&quot; factors:
+          Official tournament tickets are sold through FIFA&apos;s{" "}
+          <a
+            href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/tickets"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white underline decoration-neon/50 underline-offset-[3px] transition hover:text-neon hover:decoration-neon"
+          >
+            World Cup 2026 ticketing page
+          </a>
+          . If you&apos;ve been browsing elsewhere, resale and batch releases
+          can still push prices significantly higher than past tournaments.
+          Analysts point to a few specific &quot;perfect storm&quot; factors:
         </p>
         <ol className="mt-6 list-decimal space-y-6 pl-5 text-sm text-zinc-300 marker:font-semibold marker:text-neon md:text-base [&>li]:pl-2">
           <li>
