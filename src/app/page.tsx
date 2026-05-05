@@ -40,6 +40,13 @@ export default function HomePage() {
             World Cup songs &amp; voting
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
+          <Link
+            href="/quiz"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-neon/40 hover:text-white"
+          >
+            Champions quiz (2010–2022)
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
         </div>
       </div>
 
