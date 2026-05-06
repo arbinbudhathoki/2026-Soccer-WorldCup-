@@ -121,7 +121,7 @@ export function Champions2026Quiz() {
                       : isWrongPick
                         ? "border-rose-500/40 bg-rose-950/30 text-rose-100"
                         : "border-white/10 opacity-45"
-                    : "border-white/15 bg-black/20 hover:border-neon/40 hover:bg-black/30";
+                    : "border-white/15 bg-black/20 hover:border-heat/40 hover:bg-black/30";
 
                   return (
                     <li key={opt}>
@@ -193,7 +193,7 @@ export function Champions2026Quiz() {
                 <button
                   type="button"
                   onClick={() => selectPrediction(n)}
-                  className="flex w-full items-center justify-center rounded-2xl border border-white/15 bg-black/25 px-4 py-4 text-base font-semibold text-white transition hover:border-neon/50 hover:bg-black/40 md:py-5"
+                  className="flex w-full items-center justify-center rounded-2xl border border-white/15 bg-black/25 px-4 py-4 text-base font-semibold text-white transition hover:border-heat/50 hover:bg-black/40 md:py-5"
                 >
                   {n}
                 </button>
@@ -222,7 +222,7 @@ export function Champions2026Quiz() {
           <button
             type="button"
             onClick={restart}
-            className="mt-8 inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-neon/40 hover:text-white"
+            className="mt-8 inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-heat/40 hover:text-white"
           >
             Play again
           </button>

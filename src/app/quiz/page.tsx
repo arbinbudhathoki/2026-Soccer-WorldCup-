@@ -8,7 +8,7 @@ export default function ChampionsQuizPage() {
       <header className="flex flex-col gap-4">
         <Link
           href="/"
-          className="inline-flex w-fit items-center gap-2 text-sm text-zinc-400 transition hover:text-neon"
+          className="inline-flex w-fit items-center gap-2 text-sm text-zinc-400 transition hover:text-heat"
         >
           <ChevronLeft className="h-4 w-4" aria-hidden />
           Back home

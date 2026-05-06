@@ -20,7 +20,7 @@ export default async function DashboardPage() {
         <div>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-zinc-400 transition hover:text-neon"
+            className="inline-flex items-center gap-2 text-sm text-zinc-400 transition hover:text-heat"
           >
             <ChevronLeft className="h-4 w-4" aria-hidden />
             Back home

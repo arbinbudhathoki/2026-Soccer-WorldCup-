@@ -24,7 +24,7 @@ export function GoldenBootStory({ variant = "full" }: { variant?: "full" | "comp
             href={ESPN_GOLDEN_BOOT_ARTICLE}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-neon underline decoration-neon/40 underline-offset-2 transition hover:decoration-neon"
+            className="font-medium text-neon underline decoration-heat/40 underline-offset-2 transition hover:decoration-heat"
           >
             Who has won the most Golden Boots? European winners list
           </a>
@@ -80,7 +80,7 @@ export function GoldenBootStory({ variant = "full" }: { variant?: "full" | "comp
             href={ESPN_GOLDEN_BOOT_ARTICLE}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-neon underline decoration-neon/40 underline-offset-2 transition hover:decoration-neon"
+            className="font-medium text-neon underline decoration-heat/40 underline-offset-2 transition hover:decoration-heat"
           >
             Who has won the most Golden Boots? European winners list — ESPN
           </a>

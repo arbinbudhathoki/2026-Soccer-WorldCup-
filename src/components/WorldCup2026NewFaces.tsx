@@ -28,7 +28,7 @@ export function WorldCup2026NewFaces() {
         {worldCup2026NewFaces.map((p) => (
           <li
             key={`${p.nation}-${p.name}`}
-            className="flex flex-col rounded-2xl border border-white/10 bg-black/25 p-5 transition hover:border-neon/30 hover:bg-black/35"
+            className="flex flex-col rounded-2xl border border-white/10 bg-black/25 p-5 transition hover:border-heat/30 hover:bg-black/35"
           >
             <div className="flex flex-wrap gap-1.5">
               {p.tags.map((t) => (

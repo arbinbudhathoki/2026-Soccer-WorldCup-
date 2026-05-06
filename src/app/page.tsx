@@ -35,14 +35,14 @@ export default function HomePage() {
           </Link>
           <Link
             href="/songs"
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-neon/40 hover:text-white"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-heat/40 hover:text-heat"
           >
             World Cup songs &amp; voting
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
           <Link
             href="/quiz"
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-neon/40 hover:text-white"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-heat/40 hover:text-heat"
           >
             Champions quiz (2010–2022)
             <ArrowRight className="h-4 w-4" aria-hidden />
@@ -71,7 +71,7 @@ export default function HomePage() {
             href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white underline decoration-neon/50 underline-offset-[3px] transition hover:text-neon hover:decoration-neon"
+            className="text-white underline decoration-heat/50 underline-offset-[3px] transition hover:text-heat hover:decoration-heat"
           >
             FIFA World Cup 2026™
           </a>{" "}
@@ -297,7 +297,7 @@ export default function HomePage() {
             href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/tickets"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white underline decoration-neon/50 underline-offset-[3px] transition hover:text-neon hover:decoration-neon"
+            className="text-white underline decoration-heat/50 underline-offset-[3px] transition hover:text-heat hover:decoration-heat"
           >
             World Cup 2026 ticketing page
           </a>

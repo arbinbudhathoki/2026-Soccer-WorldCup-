@@ -22,7 +22,7 @@ const milestones = [
 export function RonaldoSpotlight() {
   return (
     <section className="glass-panel relative overflow-hidden rounded-3xl p-8 md:p-10">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(57,255,140,0.08),_transparent_50%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(23,190,187,0.08),_transparent_50%)]" />
       <div className="relative flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neon">

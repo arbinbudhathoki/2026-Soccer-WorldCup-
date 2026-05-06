@@ -15,9 +15,14 @@ const config: Config = {
           glass: "rgba(15, 34, 25, 0.55)",
         },
         neon: {
-          DEFAULT: "#39ff8c",
-          dim: "#1fb86a",
-          glow: "rgba(57, 255, 140, 0.35)",
+          DEFAULT: "#17BEBB",
+          dim: "#0EA6A0",
+          glow: "rgba(23, 190, 187, 0.35)",
+        },
+        heat: {
+          DEFAULT: "#FF9F1C",
+          dim: "#FFB547",
+          glow: "rgba(255, 159, 28, 0.35)",
         },
       },
       fontFamily: {
@@ -26,7 +31,8 @@ const config: Config = {
       },
       boxShadow: {
         glass: "0 8px 32px rgba(0, 0, 0, 0.45)",
-        neon: "0 0 24px rgba(57, 255, 140, 0.25)",
+        neon: "0 0 24px rgba(23, 190, 187, 0.25)",
+        heat: "0 0 24px rgba(255, 159, 28, 0.25)",
       },
       backdropBlur: {
         xs: "2px",

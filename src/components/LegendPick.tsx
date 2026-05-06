@@ -208,7 +208,7 @@ function PickButton({
       className={`rounded-full border px-5 py-2.5 text-sm font-semibold transition ${
         active
           ? "border-neon bg-neon text-pitch shadow-neon"
-          : "border-white/20 bg-white/5 text-zinc-200 hover:border-neon/40 hover:text-white"
+          : "border-white/20 bg-white/5 text-zinc-200 hover:border-heat/40 hover:text-heat"
       }`}
       aria-pressed={active}
     >

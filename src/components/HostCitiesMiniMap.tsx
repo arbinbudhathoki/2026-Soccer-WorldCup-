@@ -101,7 +101,7 @@ export function HostCitiesMiniMap() {
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1.3fr_1fr]">
         <div className="relative overflow-hidden rounded-3xl border border-neon/25 bg-zinc-950/80 p-4 shadow-neon">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(57,255,140,0.16),transparent_45%),radial-gradient(circle_at_75%_70%,rgba(57,255,140,0.1),transparent_40%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(23,190,187,0.16),transparent_45%),radial-gradient(circle_at_75%_70%,rgba(23,190,187,0.1),transparent_40%)]" />
 
           <div className="relative h-[320px] w-full rounded-2xl border border-white/10 bg-zinc-950/70">
             <div className="absolute left-[8%] top-[12%] h-[35%] w-[32%] rounded-[38%] border border-neon/20 bg-neon/10" />
@@ -115,7 +115,7 @@ export function HostCitiesMiniMap() {
                 style={{ left: city.x, top: city.y }}
               >
                 <span className="absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 rounded-full bg-neon/30 blur-md" />
-                <MapPin className="relative h-4 w-4 text-neon drop-shadow-[0_0_10px_rgba(57,255,140,0.75)]" />
+                <MapPin className="relative h-4 w-4 text-neon drop-shadow-[0_0_10px_rgba(23,190,187,0.75)]" />
                 <div className="pointer-events-none absolute left-1/2 top-5 z-10 hidden w-48 -translate-x-1/2 rounded-lg border border-neon/30 bg-zinc-950/95 p-2 text-xs text-zinc-200 group-hover:block">
                   <p className="font-semibold text-white">{city.city}</p>
                   <p className="text-zinc-400">{city.stadium}</p>
