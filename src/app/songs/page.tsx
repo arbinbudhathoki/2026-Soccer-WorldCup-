@@ -4,7 +4,10 @@ import { WorldCupSongsVote } from "@/components/WorldCupSongsVote";
 
 export default function WorldCupSongsPage() {
   return (
-    <div className="mx-auto flex min-h-screen max-w-6xl flex-col gap-10 px-4 py-10 md:px-8">
+    <main
+      id="main-content"
+      className="mx-auto flex min-h-screen max-w-6xl flex-col gap-10 px-4 py-10 md:px-8"
+    >
       <header className="flex flex-col gap-4">
         <Link
           href="/"
@@ -29,6 +32,6 @@ export default function WorldCupSongsPage() {
       </header>
 
       <WorldCupSongsVote />
-    </div>
+    </main>
   );
 }

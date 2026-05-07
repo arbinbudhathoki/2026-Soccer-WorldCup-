@@ -15,7 +15,10 @@ export default async function DashboardPage() {
   const completedMatches = await readStoredCompletedMatches();
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-6xl flex-col gap-10 px-4 py-10 md:px-8">
+    <main
+      id="main-content"
+      className="mx-auto flex min-h-screen max-w-6xl flex-col gap-10 px-4 py-10 md:px-8"
+    >
       <header className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
           <Link
@@ -58,6 +61,6 @@ export default async function DashboardPage() {
       <RonaldoSpotlight />
       <FeaturedPredictorSection />
       <DailyScoreSync matches={completedMatches} />
-    </div>
+    </main>
   );
 }

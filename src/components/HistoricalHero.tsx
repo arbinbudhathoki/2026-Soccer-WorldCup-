@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { CalendarDays, Goal, Medal, Sparkles, Trophy } from "lucide-react";
 import { useMemo, useState } from "react";
 import type { WorldCupEditionSummary } from "@/data/worldcup-history";
@@ -9,6 +9,7 @@ import { worldCupEditions } from "@/data/worldcup-history";
 const years = worldCupEditions.map((e) => e.year);
 
 export function HistoricalHero() {
+  const prefersReducedMotion = useReducedMotion();
   const [year, setYear] = useState<WorldCupEditionSummary["year"]>(2022);
   const edition = useMemo(
     () => worldCupEditions.find((e) => e.year === year)!,
@@ -32,12 +33,17 @@ export function HistoricalHero() {
             final.
           </p>
         </div>
-        <div className="flex gap-2 rounded-full border border-white/10 bg-black/30 p-1">
+        <div
+          className="flex gap-2 rounded-full border border-white/10 bg-black/30 p-1"
+          role="group"
+          aria-label="Tournament year"
+        >
           {years.map((y) => (
             <button
               key={y}
               type="button"
               onClick={() => setYear(y)}
+              aria-pressed={year === y}
               className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
                 year === y
                   ? "bg-neon text-pitch shadow-neon"
@@ -54,10 +60,16 @@ export function HistoricalHero() {
         <AnimatePresence mode="wait">
           <motion.div
             key={edition.year}
-            initial={{ opacity: 0, y: 16 }}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
+            exit={
+              prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -12 }
+            }
+            transition={
+              prefersReducedMotion
+                ? { duration: 0 }
+                : { duration: 0.35, ease: "easeOut" }
+            }
             className="grid gap-6 md:grid-cols-2"
           >
             <div className="rounded-2xl border border-white/10 bg-black/30 p-6">

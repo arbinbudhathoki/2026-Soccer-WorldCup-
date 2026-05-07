@@ -8,7 +8,10 @@ import { WorldCupCountdown } from "@/components/WorldCupCountdown";
 
 export default function HomePage() {
   return (
-    <main className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center gap-8 px-6 py-16">
+    <main
+      id="main-content"
+      className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center gap-8 px-6 py-16"
+    >
       <div className="glass-panel rounded-3xl p-10">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-neon/30 bg-neon/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-neon">
           <Trophy className="h-4 w-4" aria-hidden />
