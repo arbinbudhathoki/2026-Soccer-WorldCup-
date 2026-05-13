@@ -92,7 +92,7 @@ GitHub Actions runs `npm run lint`, `npm run typecheck`, and `npm run build` on 
 5. Open in browser:
    `http://localhost:3000`
 
-If the first screen still shows a **spinning trophy** instead of the **penalty vs keeper** scene, you are not on the latest code or Next is serving a stale cache. From the project folder run `git pull origin main`, delete the `.next` folder (`rm -rf .next`), then `npm run dev` again. Confirm with `git log -1 --oneline` — it should mention the penalty loader, not “initial trophy loading overlay”.
+If the first screen still shows a **spinning trophy**, **only full-screen dark green** (same as the page background), or nothing new, you are not on the latest code or Next is serving a stale cache. From the project folder run `git pull origin main`, delete the `.next` folder (`rm -rf .next`), then `npm run dev` again. The current loader uses a **zinc/black backdrop with cyan + amber glows**, a **neon-bordered card**, and a **brighter turf strip** inside the card. Confirm with `git log -1 --oneline` — you should be on a recent commit that mentions the loader (not “initial trophy loading overlay” alone).
 
 ## Deployment (Vercel)
 
