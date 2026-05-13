@@ -37,6 +37,13 @@ export default function HomePage() {
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
           <Link
+            href="/matches"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-heat/40 hover:text-heat"
+          >
+            Browse 2026 group fixtures
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
+          <Link
             href="/songs"
             className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-heat/40 hover:text-heat"
           >

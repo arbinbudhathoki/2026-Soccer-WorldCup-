@@ -2,27 +2,13 @@
 
 import { revalidatePath } from "next/cache";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
+import { isPredictionLocked } from "@/lib/match-lock";
+import { GROUP_FIXTURE_KEY_RE } from "@/lib/worldcup-fixtures";
 
 export type PredictionActionState = {
   ok: boolean;
   message: string;
 };
-
-/** Aligns with `GroupStageFixture.id` in `src/data/worldcup-history.ts`. */
-const FIXTURE_KEY_RE = /^2026-[A-L]-M[123]-[12]$/;
-
-function isPredictionLocked(match: {
-  kickoff_at: string | null;
-  status: string;
-}): boolean {
-  if (match.status === "live" || match.status === "finished") {
-    return true;
-  }
-  if (match.kickoff_at) {
-    return new Date(match.kickoff_at).getTime() <= Date.now();
-  }
-  return false;
-}
 
 export async function submitPrediction(
   _prev: PredictionActionState | undefined,
@@ -48,7 +34,7 @@ export async function submitPrediction(
   const fixtureKey =
     typeof fixtureKeyRaw === "string" ? fixtureKeyRaw.trim() : "";
 
-  if (!FIXTURE_KEY_RE.test(fixtureKey)) {
+  if (!GROUP_FIXTURE_KEY_RE.test(fixtureKey)) {
     return { ok: false, message: "Invalid match reference." };
   }
 
@@ -127,6 +113,8 @@ export async function submitPrediction(
   }
 
   revalidatePath("/dashboard");
+  revalidatePath("/matches");
+  revalidatePath(`/matches/${fixtureKey}`);
 
   return {
     ok: true,

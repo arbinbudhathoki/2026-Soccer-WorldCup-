@@ -30,7 +30,8 @@ Example line you can add after you know the URL: `[open live site](https://<your
 
 - World Cup themed homepage with modern glass/neon UI
 - Historical tournament storytelling and stats
-- Match prediction experience for the 2026 tournament
+- Match prediction experience for the 2026 tournament (dashboard + per-fixture pages)
+- Group-stage fixture browser with filters, and a Supabase-backed leaderboard when RPCs are installed
 - Personal fan note section (Germany, Mesut Ozil inspiration)
 - Built with reusable React components and Tailwind styling
 
@@ -68,6 +69,15 @@ Example line you can add after you know the URL: `[open live site](https://<your
 - `npm run build` - Create production build
 - `npm run start` - Run production build locally
 - `npm run lint` - Run Next.js/ESLint checks
+- `npm run typecheck` - Run TypeScript without emitting files (`tsconfig.typecheck.json` scopes `src/` so local `.next` artifacts do not affect CI)
+
+### Database (Supabase)
+
+After applying `supabase/schema.sql`, optional additive SQL lives in `supabase/migrations/` (for example `20260512_leaderboard_scoring.sql` is merged into the bottom of `schema.sql` for greenfield installs). The dashboard **Leaderboard** calls the `get_leaderboard` RPC; if you created the database before that function existed, run the migration file once in the Supabase SQL editor. To verify scoring locally, set a `matches` row to `status = 'finished'` with `home_score` / `away_score`, save a prediction for that `fixture_key`, then reload the dashboard so the leaderboard RPC runs.
+
+## Continuous integration
+
+GitHub Actions runs `npm run lint`, `npm run typecheck`, and `npm run build` on pushes and pull requests to `main` / `master` (see `.github/workflows/ci.yml`).
 
 ## Run Locally
 

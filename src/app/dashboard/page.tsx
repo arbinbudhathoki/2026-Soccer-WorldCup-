@@ -6,7 +6,8 @@ import { WorldCupCountdown } from "@/components/WorldCupCountdown";
 import { FeaturedPredictorSection } from "@/app/dashboard/featured-predictor-section";
 import { readStoredCompletedMatches } from "@/lib/completed-match-store";
 import Link from "next/link";
-import { ChevronLeft, Music2 } from "lucide-react";
+import { CalendarDays, ChevronLeft, Music2 } from "lucide-react";
+import { LeaderboardSection } from "@/components/LeaderboardSection";
 
 /** Session + Supabase reads must not reuse a generic static snapshot. */
 export const dynamic = "force-dynamic";
@@ -38,6 +39,13 @@ export default async function DashboardPage() {
         </div>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-stretch">
           <Link
+            href="/matches"
+            className="glass-panel inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-4 text-sm font-semibold text-neon transition hover:bg-white/5"
+          >
+            <CalendarDays className="h-4 w-4" aria-hidden />
+            2026 fixtures
+          </Link>
+          <Link
             href="/songs"
             className="glass-panel inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-4 text-sm font-semibold text-neon transition hover:bg-white/5"
           >
@@ -60,6 +68,7 @@ export default async function DashboardPage() {
       <GoldenBootStory variant="compact" />
       <RonaldoSpotlight />
       <FeaturedPredictorSection />
+      <LeaderboardSection />
       <DailyScoreSync matches={completedMatches} />
     </main>
   );
