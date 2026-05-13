@@ -1,106 +1,118 @@
-# 2026 Soccer World Cup
+2026 Soccer World Cup
 
-Interactive World Cup website built with Next.js, focused on history, fan storytelling, and 2026 tournament predictions.
+Interactive World Cup experience built with Next.js, focused on football history, fan storytelling, live-style predictions, and the road to the 2026 FIFA World Cup.
 
-**Official tournament hub:** [FIFA World Cup 2026™ — Canada, Mexico, USA](https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026)
+Official tournament hub:
+FIFA World Cup 2026™ — Canada, Mexico, USA
 
-## Screenshots
+Screenshots
+Landing — World Cup Experience
 
-**Landing — World Cup mode:** history, 2026 predictions, and event snapshot.
+Modern neon-inspired homepage featuring tournament history, 2026 predictions, and immersive World Cup visuals.
 
-![Landing: World Cup mode hero with neon UI](docs/screenshots/landing-world-cup-mode.png)
+Matchroom — Historical Finals
 
-**Matchroom — historical finals:** year toggle (2014 / 2018 / 2022), podium, and final-night stats (Supabase-ready panel).
+Interactive finals dashboard with:
 
-![Matchroom dashboard: finals energy and year selector](docs/screenshots/matchroom-dashboard.png)
+year switching (2014 / 2018 / 2022)
+podium highlights
+final-night stats
+Supabase-ready match panels
 
-**Dashboard — 2026 predictor & score sync:** match scorelines, daily completed scores from TheSportsDB.
+Dashboard — Predictions & Live Score Sync
 
-![Dashboard: 2026 predictor and free API score sync](docs/screenshots/dashboard-predictor-sync.png)
+Prediction dashboard with:
 
-## Live demo
+scoreline predictions
+featured fixtures
+leaderboard integration
+daily score syncing from TheSportsDB
 
-**[Deploy to Vercel (one click)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Farbinbudhathoki%2F2026-Soccer-WorldCup-)**
+Live Demo
+Deploy Instantly on Vercel
 
-After the first production deploy, you will see a **production URL** on your Vercel project overview. Add a clickable **App** link in this README (same format as a normal markdown link) and set `NEXT_PUBLIC_SITE_URL` in Vercel to that exact URL (see `.env.example`) so link previews and Open Graph images stay correct on custom domains or stable Vercel URLs.
+Deploy to Vercel (One Click)
 
-Example line you can add after you know the URL: `[open live site](https://<your-project>.vercel.app)`.
+After deployment:
 
-## Highlights
+Copy your production URL from Vercel.
+Add it as:
+[Open Live Site](https://your-project.vercel.app)
+Set:
+NEXT_PUBLIC_SITE_URL=
 
-- World Cup themed homepage with modern glass/neon UI
-- Historical tournament storytelling and stats
-- Match prediction experience for the 2026 tournament (dashboard + per-fixture pages)
-- Group-stage fixture browser with filters, and a Supabase-backed leaderboard when RPCs are installed
-- Personal fan note section (Germany, Mesut Ozil inspiration)
-- Built with reusable React components and Tailwind styling
+inside Vercel Environment Variables so Open Graph previews and metadata stay correct.
 
-## Latest 2026 Update Snapshot
+Features
+2026 Prediction System
+Match prediction experience with:
+dashboard predictor
+per-match prediction pages
+Prediction locking system prevents edits:
+after kickoff
+during live matches
+after full time
+Automatic page revalidation after prediction updates
+Leaderboard & Scoring
 
-- Tournament window: June 11 to July 19, 2026
-- Format: 48 teams, 12 groups of four, 104 total matches
-- Final venue: New York New Jersey Stadium (MetLife Stadium), East Rutherford
-- Ticketing: additional batch released on April 22, 2026
-- Storylines: player fitness/injury watch (Lamine Yamal, Estevao) and ongoing Messi status discussion
+Supabase-powered leaderboard system with scoring logic:
 
-## Tech Stack
+5 points → exact prediction
+3 points → correct result
+1 point → partial accuracy
 
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- Supabase
-- Framer Motion
+Includes:
 
-## Quick Start
+refresh_prediction_points()
+get_leaderboard() RPC functions
+Fixtures Experience
+Group-stage fixture browser
+Group filters
+Matchday filters
+Dedicated match pages:
+/matches/[fixtureKey]
+Loader Redesign
 
-1. Install dependencies:
-   `npm install`
-2. Create local environment file:
-   `cp .env.example .env.local`
-3. Start development server:
-   `npm run dev`
-4. Open in browser:
-   `http://localhost:3000`
+The opening loader was redesigned from a simple spinning trophy into a cinematic football penalty scene featuring:
 
-### Useful Scripts
+player animation
+ball movement
+diving goalkeeper
+glowing goal frame
 
-- `npm run dev` - Start local development server
-- `npm run build` - Create production build
-- `npm run start` - Run production build locally
-- `npm run lint` - Run Next.js/ESLint checks
-- `npm run typecheck` - Run TypeScript without emitting files (`tsconfig.typecheck.json` scopes `src/` so local `.next` artifacts do not affect CI)
+Visual updates include:
 
-### Database (Supabase)
+zinc/black backdrop
+neon cyan + amber glow effects
+glassmorphism card
+brighter turf strip
+“Opening Kick” label
+UI & Design
+Modern glass/neon World Cup theme
+Responsive layouts
+Framer Motion animations
+Reusable React components
+Tailwind CSS styling
+Fan Storytelling
 
-After applying `supabase/schema.sql`, optional additive SQL lives in `supabase/migrations/` (for example `20260512_leaderboard_scoring.sql` is merged into the bottom of `schema.sql` for greenfield installs). The dashboard **Leaderboard** calls the `get_leaderboard` RPC; if you created the database before that function existed, run the migration file once in the Supabase SQL editor. To verify scoring locally, set a `matches` row to `status = 'finished'` with `home_score` / `away_score`, save a prediction for that `fixture_key`, then reload the dashboard so the leaderboard RPC runs.
+Includes personal football storytelling and historical World Cup inspiration sections.
 
-## Continuous integration
-
-GitHub Actions runs `npm run lint`, `npm run typecheck`, and `npm run build` on pushes and pull requests to `main` / `master` (see `.github/workflows/ci.yml`).
-
-## Run Locally
-
-1. Clone the repo:
-   `git clone https://github.com/arbinbudhathoki/2026-Soccer-WorldCup-.git`
-2. Open the project folder:
-   `cd 2026-Soccer-WorldCup-`
-3. Install dependencies:
-   `npm install`
-4. Start development server:
-   `npm run dev`
-5. Open in browser:
-   `http://localhost:3000`
-
-If the first screen still shows a **spinning trophy**, **only full-screen dark green** (same as the page background), or nothing new, you are not on the latest code or Next is serving a stale cache. From the project folder run `git pull origin main`, delete the `.next` folder (`rm -rf .next`), then `npm run dev` again. The current loader uses a **zinc/black backdrop with cyan + amber glows**, a **neon-bordered card**, and a **brighter turf strip** inside the card. Confirm with `git log -1 --oneline` — you should be on a recent commit that mentions the loader (not “initial trophy loading overlay” alone).
-
-## Deployment (Vercel)
-
-1. Use [the deploy link above](#live-demo) or go to [Vercel](https://vercel.com) and import this repository.
-2. **Recommended:** in project **Settings → Environment Variables**, set `NEXT_PUBLIC_SITE_URL` to your production URL (Vercel URL or custom domain) so link previews and metadata use a stable address.
-3. Add optional Supabase keys from `.env.example` if you use that integration.
-4. After deploy, paste the production URL into the **App** line in the [Live demo](#live-demo) section of this README.
-
-## Repository
-
-GitHub: [arbinbudhathoki/2026-Soccer-WorldCup-](https://github.com/arbinbudhathoki/2026-Soccer-WorldCup-)
+Latest 2026 Tournament Snapshot
+Tournament Dates: June 11 – July 19, 2026
+Format:
+48 teams
+12 groups
+104 matches
+Final Venue:
+New York New Jersey Stadium (MetLife Stadium)
+Ongoing storylines:
+player fitness watch
+emerging stars
+Messi tournament discussion
+Tech Stack
+Next.js
+React
+TypeScript
+Tailwind CSS
+Supabase
+Framer Motion
