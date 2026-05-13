@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import styles from "./InitialLoader.module.css";
 
 const LOADER_MS = 2500;
 
@@ -24,19 +25,19 @@ export function InitialLoader() {
       aria-label="Loading World Cup experience"
     >
       <div className="flex flex-col items-center gap-6 px-4">
-        <div className="initial-loader-scene" aria-hidden>
-          <div className="initial-loader-pitch" />
-          <div className="initial-loader-goal">
-            <div className="initial-loader-net" />
+        <div className={styles.scene} aria-hidden>
+          <div className={styles.pitch} />
+          <div className={styles.goal}>
+            <div className={styles.net} />
           </div>
-          <div className="initial-loader-gk">
-            <div className="initial-loader-gk-arm" />
+          <div className={styles.gk}>
+            <div className={styles.gkArm} />
           </div>
-          <div className="initial-loader-ball" />
-          <div className="initial-loader-player">
-            <div className="initial-loader-player-head" />
-            <div className="initial-loader-player-body" />
-            <div className="initial-loader-player-leg" />
+          <div className={styles.ball} />
+          <div className={styles.player}>
+            <div className={styles.playerHead} />
+            <div className={styles.playerBody} />
+            <div className={styles.playerLeg} />
           </div>
         </div>
         <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-zinc-300">

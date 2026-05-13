@@ -92,6 +92,8 @@ GitHub Actions runs `npm run lint`, `npm run typecheck`, and `npm run build` on 
 5. Open in browser:
    `http://localhost:3000`
 
+If the first screen still shows a **spinning trophy** instead of the **penalty vs keeper** scene, you are not on the latest code or Next is serving a stale cache. From the project folder run `git pull origin main`, delete the `.next` folder (`rm -rf .next`), then `npm run dev` again. Confirm with `git log -1 --oneline` — it should mention the penalty loader, not “initial trophy loading overlay”.
+
 ## Deployment (Vercel)
 
 1. Use [the deploy link above](#live-demo) or go to [Vercel](https://vercel.com) and import this repository.
