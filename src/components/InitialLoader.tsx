@@ -1,6 +1,5 @@
 "use client";
 
-import { Trophy } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const LOADER_MS = 2500;
@@ -24,10 +23,24 @@ export function InitialLoader() {
       aria-live="polite"
       aria-label="Loading World Cup experience"
     >
-      <div className="flex flex-col items-center gap-4">
-        <Trophy className="h-14 w-14 animate-spin text-neon" aria-hidden />
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-300">
-          Welcome a Real Soccer Enthusiast
+      <div className="flex flex-col items-center gap-6 px-4">
+        <div className="initial-loader-scene" aria-hidden>
+          <div className="initial-loader-pitch" />
+          <div className="initial-loader-goal">
+            <div className="initial-loader-net" />
+          </div>
+          <div className="initial-loader-gk">
+            <div className="initial-loader-gk-arm" />
+          </div>
+          <div className="initial-loader-ball" />
+          <div className="initial-loader-player">
+            <div className="initial-loader-player-head" />
+            <div className="initial-loader-player-body" />
+            <div className="initial-loader-player-leg" />
+          </div>
+        </div>
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-zinc-300">
+          Penalty — spot kick vs the keeper
         </p>
       </div>
     </div>
