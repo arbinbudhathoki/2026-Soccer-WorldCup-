@@ -12,7 +12,7 @@ const fanLogicRonaldo =
   "I'm going with CR7. I need that level of confidence. This is a man who scores a tap-in against a team of part-time accountants and celebrates like he just saved the planet from an alien invasion. That's the energy I need in my life.";
 
 const fanLogicNeymar =
-  "Neymar gets my vote because nobody else treats gravity like a suggestion — stepovers, nutmegs, and enough flair to power a highlight channel. Either he's unplayable or he's on a carefully managed 'recharge' plan; either way, I'm buying a ticket to the show.";
+  "Neymar gets my vote because nobody else treats gravity like a suggestion — stepovers, nutmegs, and enough flair to power a highlight channel. He's locked in for World Cup 2026 after rebuilding at Santos; either he's unplayable or he's on a carefully managed 'recharge' plan — either way, I'm buying a ticket to the show.";
 
 const FAN_LOGIC: Record<Legend, string> = {
   Messi: fanLogicMessi,
@@ -113,8 +113,9 @@ export function LegendPick() {
                   still climbing; &quot;aging&quot; didn&apos;t get the memo.
                 </td>
                 <td className="py-3">
-                  Back at Santos, building toward 2026 — goals and assists in
-                  bursts while the minutes stay carefully managed.
+                  Back at Santos and on course for World Cup 2026 — goals and
+                  assists in bursts while Brazil build around him one last time on
+                  this stage.
                 </td>
               </tr>
               <tr>
@@ -133,8 +134,9 @@ export function LegendPick() {
                   undisputed king of the clutch montage.
                 </td>
                 <td className="py-3">
-                  Olympic gold, Confederations Cup, and a highlight reel that
-                  broke the internet — the third name everyone still argues about.
+                  Olympic gold, Confederations Cup, three World Cups (2014–2022),
+                  and a 2026 return after Qatar — the third name everyone still
+                  argues about.
                 </td>
               </tr>
             </tbody>

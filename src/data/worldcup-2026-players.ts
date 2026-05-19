@@ -8,7 +8,9 @@ export type WorldCup2026PlayerSpotlight = {
   nation: string;
   role: string;
   hook: string;
-  tags: Array<"firstWorldCup" | "under21" | "hostNation" | "breakout">;
+  tags: Array<
+    "firstWorldCup" | "under21" | "hostNation" | "breakout" | "veteran2026"
+  >;
 };
 
 const TAG_LABELS: Record<WorldCup2026PlayerSpotlight["tags"][number], string> = {
@@ -16,6 +18,7 @@ const TAG_LABELS: Record<WorldCup2026PlayerSpotlight["tags"][number], string> = 
   under21: "U-21",
   hostNation: "Host nation",
   breakout: "Breakout arc",
+  veteran2026: "World Cup 2026",
 };
 
 export function tagLabel(tag: WorldCup2026PlayerSpotlight["tags"][number]): string {
@@ -39,6 +42,14 @@ export const worldCup2026NewFaces: WorldCup2026PlayerSpotlight[] = [
     hook:
       "Already Spain’s creative lightning rod — every touch in the final third feels like an event.",
     tags: ["under21", "breakout"],
+  },
+  {
+    name: "Neymar Jr",
+    nation: "Brazil",
+    role: "Forward / No. 10",
+    hook:
+      "Publicly targeted this World Cup after Qatar — back at Santos, fit again, and set to lead Brazil in North America alongside the next generation.",
+    tags: ["veteran2026"],
   },
   {
     name: "Endrick",

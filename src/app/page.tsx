@@ -26,7 +26,8 @@ export default function HomePage() {
           48-team tournament in North America.
         </p>
         <p className="mt-3 text-base text-zinc-300">
-          (Will Messi play this 2026 World Cup?)
+          (Will Messi play this 2026 World Cup? Neymar Jr is targeting Brazil&apos;s
+          run in North America.)
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Link
@@ -173,7 +174,8 @@ export default function HomePage() {
                   Brazil vs Morocco
                 </span>
                 <span className="text-zinc-500"> · </span>
-                New York / New Jersey
+                New York / New Jersey — circle it if you&apos;re watching Neymar&apos;s
+                2026 World Cup opener
               </div>
             </li>
           </ul>
@@ -277,9 +279,10 @@ export default function HomePage() {
             room for debut teams, surprise runs, and underdog storylines.
           </li>
           <li>
-            Player watch: reports suggest Lamine Yamal is expected to recover in
-            time, Estevao faces uncertainty after a season-ending injury, and
-            Lionel Messi&apos;s final decision remains a major storyline.
+            Player watch: Neymar Jr is on track for World Cup 2026 with Brazil
+            after his Santos return; Lamine Yamal is expected to recover in time;
+            Estevao faces uncertainty after a season-ending injury; and Lionel
+            Messi&apos;s final decision remains a major storyline.
           </li>
           <li>
             Contingency rumors around last-minute replacement teams have been

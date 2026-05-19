@@ -20,7 +20,8 @@ export function WorldCup2026NewFaces() {
         The expanded tournament puts more nations—and more young talent—on screen.
         Here&apos;s an editorial watchlist of players who could define the North
         America summer: first-time World Cup finalists, under-21 headline acts,
-        and standouts from the host nations. Final squads land closer to kickoff;
+        returning icons like Neymar Jr at World Cup 2026™, and standouts from the
+        host nations. Final squads land closer to kickoff;
         treat this as a storyboard, not an official roster.
       </p>
 
