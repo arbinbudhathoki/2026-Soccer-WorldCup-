@@ -3,6 +3,8 @@ import { ArrowRight, Calendar, Flag, Trophy } from "lucide-react";
 import { GoldenBootStory } from "@/components/GoldenBootStory";
 import { HostCitiesMiniMap } from "@/components/HostCitiesMiniMap";
 import { LegendPick } from "@/components/LegendPick";
+import { Messi2026Status } from "@/components/Messi2026Status";
+import { TournamentTodayBanner } from "@/components/TournamentTodayBanner";
 import { WorldCup2026NewFaces } from "@/components/WorldCup2026NewFaces";
 import { WorldCupCountdown } from "@/components/WorldCupCountdown";
 
@@ -29,6 +31,29 @@ export default function HomePage() {
           (Will Messi play this 2026 World Cup? Neymar Jr is targeting Brazil&apos;s
           run in North America.)
         </p>
+        <nav
+          className="mt-5 flex flex-wrap gap-2 text-xs font-semibold"
+          aria-label="On this page"
+        >
+          <a
+            href="#player-watch"
+            className="rounded-full border border-white/15 px-3 py-1.5 text-zinc-300 transition hover:border-neon/40 hover:text-neon"
+          >
+            Player watch
+          </a>
+          <a
+            href="#messi-2026"
+            className="rounded-full border border-white/15 px-3 py-1.5 text-zinc-300 transition hover:border-neon/40 hover:text-neon"
+          >
+            Messi 2026
+          </a>
+          <a
+            href="#legend-pick"
+            className="rounded-full border border-white/15 px-3 py-1.5 text-zinc-300 transition hover:border-neon/40 hover:text-neon"
+          >
+            Legend pick
+          </a>
+        </nav>
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Link
             href="/dashboard"
@@ -41,7 +66,7 @@ export default function HomePage() {
             href="/matches"
             className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-heat/40 hover:text-heat"
           >
-            Browse 2026 group fixtures
+            Browse 2026 fixtures
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
           <Link
@@ -62,9 +87,11 @@ export default function HomePage() {
       </div>
 
       <WorldCupCountdown />
+      <TournamentTodayBanner />
       <HostCitiesMiniMap />
 
       <WorldCup2026NewFaces />
+      <Messi2026Status />
 
       <section className="glass-panel rounded-3xl p-8 md:p-10">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-neon/30 bg-neon/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-neon">

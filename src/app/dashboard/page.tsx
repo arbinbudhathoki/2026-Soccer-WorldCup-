@@ -1,6 +1,10 @@
 import { GoldenBootStory } from "@/components/GoldenBootStory";
 import { HistoricalHero } from "@/components/HistoricalHero";
+import { GroupFixturesQuickNav } from "@/components/GroupFixturesQuickNav";
+import { NeymarSpotlight } from "@/components/NeymarSpotlight";
+import { PredictionScoringExplainer } from "@/components/PredictionScoringExplainer";
 import { RonaldoSpotlight } from "@/components/RonaldoSpotlight";
+import { TournamentTodayBanner } from "@/components/TournamentTodayBanner";
 import { DailyScoreSync } from "@/components/DailyScoreSync";
 import { WorldCupCountdown } from "@/components/WorldCupCountdown";
 import { FeaturedPredictorSection } from "@/app/dashboard/featured-predictor-section";
@@ -63,11 +67,15 @@ export default async function DashboardPage() {
       </header>
 
       <WorldCupCountdown variant="compact" />
+      <TournamentTodayBanner />
 
       <HistoricalHero />
       <GoldenBootStory variant="compact" />
+      <PredictionScoringExplainer />
       <RonaldoSpotlight />
+      <NeymarSpotlight />
       <FeaturedPredictorSection />
+      <GroupFixturesQuickNav />
       <LeaderboardSection />
       <DailyScoreSync matches={completedMatches} />
     </main>

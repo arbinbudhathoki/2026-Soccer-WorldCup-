@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import type { LegendPickId } from "@/data/legend-pick";
+import { getEmptyLegendVoteTotals } from "@/data/legend-pick";
 
-type Legend = "Messi" | "Ronaldo" | "Neymar";
+type Legend = LegendPickId;
 
 /** Fan logic — shown after you tap a legend */
 const fanLogicMessi =
@@ -26,11 +28,56 @@ const neutralPerspective =
 
 export function LegendPick() {
   const [picked, setPicked] = useState<Legend | null>(null);
+  const [totals, setTotals] = useState(getEmptyLegendVoteTotals());
+  const [voteStatus, setVoteStatus] = useState("");
 
+  const loadTotals = useCallback(async () => {
+    try {
+      const res = await fetch("/api/legend-pick/votes", { cache: "no-store" });
+      const data = (await res.json()) as {
+        totals?: Record<Legend, number>;
+      };
+      if (data.totals) {
+        setTotals(data.totals);
+      }
+    } catch {
+      /* offline / Supabase not configured */
+    }
+  }, []);
+
+  useEffect(() => {
+    void loadTotals();
+  }, [loadTotals]);
+
+  const handlePick = async (legend: Legend) => {
+    setPicked(legend);
+    setVoteStatus("");
+    try {
+      const res = await fetch("/api/legend-pick/votes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ legendId: legend }),
+      });
+      const data = (await res.json()) as { ok?: boolean; configured?: boolean };
+      if (data.ok) {
+        await loadTotals();
+        setVoteStatus("Vote counted — thanks!");
+      } else if (data.configured === false) {
+        setVoteStatus("Connect Supabase to save community votes.");
+      }
+    } catch {
+      setVoteStatus("Could not record vote right now.");
+    }
+  };
+
+  const totalVotes = totals.Messi + totals.Ronaldo + totals.Neymar;
   const fanLine = picked ? FAN_LOGIC[picked] : null;
 
   return (
-    <section className="glass-panel rounded-2xl p-6 md:p-8">
+    <section
+      id="legend-pick"
+      className="glass-panel rounded-2xl p-6 md:p-8"
+    >
       <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neon">
         Fan pick
       </p>
@@ -153,21 +200,48 @@ export function LegendPick() {
         </blockquote>
       </figure>
 
+      {totalVotes > 0 ? (
+        <div className="mt-6 space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+            Community votes
+          </p>
+          <div className="flex h-3 overflow-hidden rounded-full bg-black/40">
+            {(Object.keys(totals) as Legend[]).map((id) => {
+              const pct = totalVotes ? (totals[id] / totalVotes) * 100 : 0;
+              if (pct <= 0) {
+                return null;
+              }
+              return (
+                <div
+                  key={id}
+                  className="bg-neon/80"
+                  style={{ width: `${pct}%` }}
+                  title={`${id}: ${totals[id]}`}
+                />
+              );
+            })}
+          </div>
+          <p className="text-xs text-zinc-500">
+            Messi {totals.Messi} · Ronaldo {totals.Ronaldo} · Neymar {totals.Neymar}
+          </p>
+        </div>
+      ) : null}
+
       <div className="mt-6 flex flex-wrap gap-3">
         <PickButton
           label="Messi"
           active={picked === "Messi"}
-          onClick={() => setPicked("Messi")}
+          onClick={() => void handlePick("Messi")}
         />
         <PickButton
           label="Ronaldo"
           active={picked === "Ronaldo"}
-          onClick={() => setPicked("Ronaldo")}
+          onClick={() => void handlePick("Ronaldo")}
         />
         <PickButton
           label="Neymar"
           active={picked === "Neymar"}
-          onClick={() => setPicked("Neymar")}
+          onClick={() => void handlePick("Neymar")}
         />
       </div>
 
@@ -183,6 +257,9 @@ export function LegendPick() {
             <p className="mt-2 text-sm leading-relaxed text-zinc-200 md:text-base">
               {fanLine}
             </p>
+            {voteStatus ? (
+              <p className="mt-2 text-xs text-zinc-500">{voteStatus}</p>
+            ) : null}
           </>
         ) : (
           <p className="text-sm text-zinc-500">

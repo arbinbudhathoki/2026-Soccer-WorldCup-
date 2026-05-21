@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { Inter } from "next/font/google";
+import { AuthPanel } from "@/components/AuthPanel";
 import { InitialLoader } from "@/components/InitialLoader";
 import { getSiteUrl } from "@/lib/site";
 import "./globals.css";
@@ -49,6 +51,17 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <header className="sticky top-0 z-40 border-b border-white/10 bg-pitch/90 px-4 py-3 backdrop-blur-md md:px-8">
+          <div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <Link
+              href="/"
+              className="text-sm font-semibold text-white transition hover:text-neon"
+            >
+              World Cup Soccer
+            </Link>
+            <AuthPanel />
+          </div>
+        </header>
         {children}
       </body>
     </html>

@@ -6,7 +6,7 @@ import {
 
 export function WorldCup2026NewFaces() {
   return (
-    <section className="glass-panel rounded-3xl p-8 md:p-10">
+    <section id="player-watch" className="glass-panel rounded-3xl p-8 md:p-10">
       <div className="flex flex-wrap items-center gap-3">
         <span className="inline-flex items-center gap-2 rounded-full border border-neon/30 bg-neon/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-neon">
           <Sparkles className="h-3.5 w-3.5" aria-hidden />

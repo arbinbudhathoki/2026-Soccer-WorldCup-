@@ -74,7 +74,7 @@ export async function submitPrediction(
     return {
       ok: false,
       message:
-        "Fixture not seeded yet — in Supabase SQL editor run supabase/seed-featured-match.sql for the Mexico vs South Africa opener.",
+        "Fixture not seeded yet — add a `matches` row with this fixture_key in Supabase (see supabase/seed-featured-match.sql).",
     };
   }
 

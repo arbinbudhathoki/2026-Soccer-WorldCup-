@@ -7,6 +7,7 @@ import {
   submitPrediction,
   type PredictionActionState,
 } from "@/app/dashboard/actions";
+import { PredictionPointsPreview } from "./PredictionPointsPreview";
 import { SubmitPredictionButton } from "./SubmitPredictionButton";
 
 const initialState: PredictionActionState = {
@@ -21,6 +22,9 @@ type Props = {
   initialAwayGoals?: number;
   /** True when kickoff passed or match is live/finished. */
   formLocked?: boolean;
+  /** When set, live preview shows points vs the final score. */
+  actualHomeGoals?: number;
+  actualAwayGoals?: number;
 };
 
 export function PredictorCard({
@@ -28,6 +32,8 @@ export function PredictorCard({
   initialHomeGoals,
   initialAwayGoals,
   formLocked = false,
+  actualHomeGoals,
+  actualAwayGoals,
 }: Props) {
   const [state, formAction] = useActionState(submitPrediction, initialState);
 
@@ -64,7 +70,11 @@ export function PredictorCard({
         </div>
       </div>
 
-      <form action={formAction} className="mt-8 space-y-6">
+      <form
+        action={formAction}
+        data-predictor-form="true"
+        className="mt-8 space-y-6"
+      >
         <input type="hidden" name="matchId" value={fixture.id} />
 
         <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-black/40 p-6 md:p-8">
@@ -88,6 +98,12 @@ export function PredictorCard({
             <TeamPillar label="Away" name={fixture.away} align="end" />
           </div>
         </div>
+
+        <PredictionPointsPreview
+          actualHome={actualHomeGoals}
+          actualAway={actualAwayGoals}
+          formLocked={formLocked}
+        />
 
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex items-start gap-2 text-sm text-zinc-400">
