@@ -3,6 +3,7 @@ import { ArrowRight, Calendar, Flag, Trophy } from "lucide-react";
 import { GoldenBootStory } from "@/components/GoldenBootStory";
 import { HostCitiesMiniMap } from "@/components/HostCitiesMiniMap";
 import { LegendPick } from "@/components/LegendPick";
+import { ManOfMatchPoll } from "@/components/ManOfMatchPoll";
 import { Messi2026Status } from "@/components/Messi2026Status";
 import { TournamentTodayBanner } from "@/components/TournamentTodayBanner";
 import { WorldCup2026NewFaces } from "@/components/WorldCup2026NewFaces";
@@ -46,6 +47,12 @@ export default function HomePage() {
             className="rounded-full border border-white/15 px-3 py-1.5 text-zinc-300 transition hover:border-neon/40 hover:text-neon"
           >
             Messi 2026
+          </a>
+          <a
+            href="#man-of-match-poll"
+            className="rounded-full border border-white/15 px-3 py-1.5 text-zinc-300 transition hover:border-neon/40 hover:text-neon"
+          >
+            MOTM poll
           </a>
           <a
             href="#legend-pick"
@@ -401,6 +408,7 @@ export default function HomePage() {
           </li>
         </ol>
       </section>
+      <ManOfMatchPoll />
       <LegendPick />
       <p className="text-center text-xs text-zinc-500">
         Stack: Next.js · Tailwind · Supabase · Framer Motion
