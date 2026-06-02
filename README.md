@@ -1,6 +1,6 @@
 -> 2026 Soccer World Cup ⚽
 
-This is just the prediction and documents gathered from the real offical FIFA website and some from the football websites
+-> This is just the prediction and documents gathered from the real offical FIFA website and some from the football websites
 Interactive World Cup experience built with Next.js, focused on football history, fan storytelling, live-style predictions, and the road to the 2026 FIFA World Cup.
 
 Official tournament hub:
