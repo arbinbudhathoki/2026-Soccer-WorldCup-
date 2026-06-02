@@ -7,11 +7,11 @@ Official tournament hub:
 FIFA World Cup 2026™ — Canada, Mexico, USA
 
 🌍 Screenshots
-Landing — World Cup Mode
+-> Landing — World Cup Mode
 
-History, stats, and 2026 predictions in one cinematic hub with neon UI styling.
+-> History, stats, and 2026 predictions in one cinematic hub with neon UI styling.
 
-Opening Loader — Penalty Scene Animation
+-> Opening Loader — Penalty Scene Animation
 
 A redesigned loading experience replacing the old spinning trophy with a football penalty showdown.
 
