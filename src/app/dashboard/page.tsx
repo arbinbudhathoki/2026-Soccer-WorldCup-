@@ -10,7 +10,7 @@ import { WorldCupCountdown } from "@/components/WorldCupCountdown";
 import { FeaturedPredictorSection } from "@/app/dashboard/featured-predictor-section";
 import { readStoredCompletedMatches } from "@/lib/completed-match-store";
 import Link from "next/link";
-import { CalendarDays, ChevronLeft, Music2 } from "lucide-react";
+import { CalendarDays, ChevronLeft, Music2, Ticket } from "lucide-react";
 import { LeaderboardSection } from "@/components/LeaderboardSection";
 
 /** Session + Supabase reads must not reuse a generic static snapshot. */
@@ -55,6 +55,13 @@ export default async function DashboardPage() {
           >
             <Music2 className="h-4 w-4" aria-hidden />
             Songs &amp; vote
+          </Link>
+          <Link
+            href="/tickets"
+            className="glass-panel inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-4 text-sm font-semibold text-neon transition hover:bg-white/5"
+          >
+            <Ticket className="h-4 w-4" aria-hidden />
+            Tickets
           </Link>
           <div className="glass-panel rounded-2xl px-5 py-4 text-sm text-zinc-300">
             <p className="text-xs uppercase tracking-[0.3em] text-neon">Live data</p>

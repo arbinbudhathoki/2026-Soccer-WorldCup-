@@ -84,6 +84,13 @@ export default function HomePage() {
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
           <Link
+            href="/tickets"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-heat/40 hover:text-heat"
+          >
+            Tickets hub
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
+          <Link
             href="/quiz"
             className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-heat/40 hover:text-heat"
           >
@@ -331,7 +338,10 @@ export default function HomePage() {
         </ul>
       </section>
 
-      <section className="glass-panel rounded-3xl p-8 md:p-10">
+      <section
+        id="tickets-pricing"
+        className="glass-panel rounded-3xl p-8 md:p-10"
+      >
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-neon">
           Tickets &amp; pricing
         </p>
@@ -407,6 +417,15 @@ export default function HomePage() {
             </p>
           </li>
         </ol>
+        <p className="mt-8">
+          <Link
+            href="/tickets"
+            className="inline-flex items-center gap-2 rounded-full bg-neon px-5 py-2.5 text-sm font-semibold text-pitch shadow-neon transition hover:bg-neon-dim"
+          >
+            Open ticket hub (FIFA + GoTickets)
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
+        </p>
       </section>
       <ManOfMatchPoll />
       <LegendPick />
