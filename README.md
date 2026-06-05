@@ -6,7 +6,7 @@ Interactive World Cup experience built with Next.js, focused on football history
 Official tournament hub:
 FIFA World Cup 2026™ — Canada, Mexico, USA
 
-🌍 Screenshots
+Screenshots of the Website
 -> Landing — World Cup Mode
 
 -> History, stats, and 2026 predictions in one cinematic hub with neon UI styling.
