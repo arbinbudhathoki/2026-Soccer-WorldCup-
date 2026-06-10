@@ -13,18 +13,18 @@ Screenshots of the Website
 
 -> Opening Loader — Penalty Scene Animation
 
-A redesigned loading experience replacing the old spinning trophy with a football penalty showdown.
+-> A redesigned loading experience replacing the old spinning trophy with a football penalty showdown.
 
-striker vs goalkeeper animation
-glowing goal frame
-cinematic neon lighting
-dark stadium atmosphere
+-> striker vs goalkeeper animation
+-> glowing goal frame
+-> cinematic neon lighting
+-> dark stadium atmosphere
 
-Matchroom — Historical Finals
+-> Matchroom — Historical Finals
 
-Interactive World Cup finals viewer featuring:
+-> Interactive World Cup finals viewer featuring:
 
-year toggle (2014 / 2018 / 2022)
+-> year toggle (2014 / 2018 / 2022)
 podium highlights
 match stats panel
 Supabase-ready layout
