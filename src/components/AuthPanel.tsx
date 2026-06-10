@@ -11,23 +11,30 @@ export function AuthPanel() {
   const [status, setStatus] = useState("");
 
   useEffect(() => {
-    const supabase = createBrowserSupabaseClient();
-    if (!supabase) {
+    let subscription: { unsubscribe: () => void } | undefined;
+
+    try {
+      const supabase = createBrowserSupabaseClient();
+      if (!supabase) {
+        setConfigured(false);
+        return;
+      }
+
+      void supabase.auth.getUser().then(({ data }) => {
+        setUserEmail(data.user?.email ?? null);
+      });
+
+      const {
+        data: { subscription: authSubscription },
+      } = supabase.auth.onAuthStateChange((_event, session) => {
+        setUserEmail(session?.user?.email ?? null);
+      });
+      subscription = authSubscription;
+    } catch {
       setConfigured(false);
-      return;
     }
 
-    supabase.auth.getUser().then(({ data }) => {
-      setUserEmail(data.user?.email ?? null);
-    });
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUserEmail(session?.user?.email ?? null);
-    });
-
-    return () => subscription.unsubscribe();
+    return () => subscription?.unsubscribe();
   }, []);
 
   async function sendMagicLink(e: React.FormEvent) {
@@ -69,8 +76,10 @@ export function AuthPanel() {
   if (!configured) {
     return (
       <div className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-xs text-zinc-500">
-        Sign-in: set{" "}
-        <span className="font-mono text-zinc-400">NEXT_PUBLIC_SUPABASE_*</span>{" "}
+        Sign-in: set valid{" "}
+        <span className="font-mono text-zinc-400">NEXT_PUBLIC_SUPABASE_URL</span>{" "}
+        (https://…) and{" "}
+        <span className="font-mono text-zinc-400">NEXT_PUBLIC_SUPABASE_ANON_KEY</span>{" "}
         in <span className="font-mono text-zinc-400">.env.local</span>
       </div>
     );
