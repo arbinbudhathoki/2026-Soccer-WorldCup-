@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { FixtureScoreBadge } from "@/components/FixtureScoreBadge";
 import { KnockoutScheduleList } from "@/components/KnockoutScheduleList";
 import { TournamentTodayBanner } from "@/components/TournamentTodayBanner";
 import { worldCup2026GroupStageFixtures } from "@/data/worldcup-history";
+import { readWorldCupLiveScores } from "@/lib/worldcup-live-score-store";
 import { MatchFilters } from "./match-filters";
 
 export const dynamic = "force-dynamic";
@@ -43,6 +45,13 @@ export default async function MatchesPage({
     return true;
   });
 
+  const { scores, syncedAt } = await readWorldCupLiveScores();
+  const scoreByFixtureKey = new Map(
+    scores
+      .filter((s) => s.fixtureKey)
+      .map((s) => [s.fixtureKey as string, s]),
+  );
+
   return (
     <main
       id="main-content"
@@ -61,9 +70,14 @@ export default async function MatchesPage({
         </h1>
         <p className="mt-2 max-w-2xl text-sm text-zinc-400">
           {view === "knockout"
-            ? "Knockout bracket schedule (32 → final). Predictions for these rounds can be added when FIFA slots are final."
-            : "Browse all 72 group-stage pairings. Open a match to submit a prediction when the row exists in Supabase."}
+            ? "Knockout bracket with live scores when synced from API-Football."
+            : "Browse all 72 group-stage pairings with live results. Sync scores on the dashboard."}
         </p>
+        {syncedAt ? (
+          <p className="mt-2 text-xs text-zinc-500">
+            Scores last synced {new Date(syncedAt).toLocaleString()}
+          </p>
+        ) : null}
       </header>
 
       <TournamentTodayBanner />
@@ -80,7 +94,7 @@ export default async function MatchesPage({
             <li key={f.id}>
               <Link
                 href={`/matches/${f.id}`}
-                className="glass-panel flex flex-col gap-2 rounded-2xl p-4 transition hover:border-neon/30 md:flex-row md:items-center md:justify-between"
+                className="glass-panel flex flex-col gap-3 rounded-2xl p-4 transition hover:border-neon/30 md:flex-row md:items-center md:justify-between"
               >
                 <div>
                   <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
@@ -91,10 +105,13 @@ export default async function MatchesPage({
                     <span className="text-zinc-600">vs</span> {f.away}
                   </p>
                 </div>
-                <span className="inline-flex items-center gap-1 text-sm text-neon">
-                  Predict
-                  <ChevronRight className="h-4 w-4" aria-hidden />
-                </span>
+                <div className="flex items-center justify-between gap-4 md:justify-end">
+                  <FixtureScoreBadge score={scoreByFixtureKey.get(f.id)} />
+                  <span className="inline-flex items-center gap-1 text-sm text-neon">
+                    Predict
+                    <ChevronRight className="h-4 w-4" aria-hidden />
+                  </span>
+                </div>
               </Link>
             </li>
           ))}

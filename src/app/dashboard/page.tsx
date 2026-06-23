@@ -5,10 +5,13 @@ import { NeymarSpotlight } from "@/components/NeymarSpotlight";
 import { PredictionScoringExplainer } from "@/components/PredictionScoringExplainer";
 import { RonaldoSpotlight } from "@/components/RonaldoSpotlight";
 import { TournamentTodayBanner } from "@/components/TournamentTodayBanner";
+import { WorldCupScoreSync } from "@/components/WorldCupScoreSync";
 import { DailyScoreSync } from "@/components/DailyScoreSync";
 import { WorldCupCountdown } from "@/components/WorldCupCountdown";
 import { FeaturedPredictorSection } from "@/app/dashboard/featured-predictor-section";
 import { readStoredCompletedMatches } from "@/lib/completed-match-store";
+import { isApiFootballConfigured } from "@/lib/api-football/client";
+import { readWorldCupLiveScores } from "@/lib/worldcup-live-score-store";
 import Link from "next/link";
 import { CalendarDays, ChevronLeft, Music2, Ticket } from "lucide-react";
 import { LeaderboardSection } from "@/components/LeaderboardSection";
@@ -18,6 +21,11 @@ export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
   const completedMatches = await readStoredCompletedMatches();
+  const worldCupScores = await readWorldCupLiveScores();
+  const finishedCount = worldCupScores.scores.filter(
+    (s) => s.status === "finished",
+  ).length;
+  const liveCount = worldCupScores.scores.filter((s) => s.status === "live").length;
 
   return (
     <main
@@ -82,6 +90,13 @@ export default async function DashboardPage() {
       <RonaldoSpotlight />
       <NeymarSpotlight />
       <FeaturedPredictorSection />
+      <WorldCupScoreSync
+        configured={isApiFootballConfigured()}
+        lastSyncedAt={worldCupScores.syncedAt || undefined}
+        totalCount={worldCupScores.scores.length}
+        finishedCount={finishedCount}
+        liveCount={liveCount}
+      />
       <GroupFixturesQuickNav />
       <LeaderboardSection />
       <DailyScoreSync matches={completedMatches} />
