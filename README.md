@@ -7,9 +7,9 @@ Interactive World Cup experience built with Next.js, focused on football history
 FIFA World Cup 2026™ — Canada, Mexico, USA
 
 Screenshots of the Website
--> Landing — World Cup Mode
+Landing — World Cup Mode
 
--> History, stats, and 2026 predictions in one cinematic hub with neon UI styling.
+History, stats, and 2026 predictions in one cinematic hub with neon UI styling.
 
 -> Opening Loader — Penalty Scene Animation
 
